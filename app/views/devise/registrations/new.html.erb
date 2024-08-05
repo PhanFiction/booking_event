@@ -1,49 +1,70 @@
-<section class="flex flex-col p-4 mx-auto">
-  <h2 class="text-center font-bold text-3xl mb-4">Sign up</h2>
-  
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "flex flex-col gap-4 p-8 shadow-lg rounded-md bg-white-05 mx-auto" }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-  
-    <div class="field *:w-full">
-      <%= f.label :username %><br />
-      <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "text-black"%>
+<section class="flex justify-center items-center min-h-screen">
+  <div class="flex flex-col bg-white-05 max-w-sm w-full rounded-lg shadow-lg  bg-white-05 p-6 gap-2">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "space-y-4" }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <h2 class="text-center font-bold text-3xl mb-4">Sign Up</h2>
+    
+      <div class="field space-y-2">
+        <%= f.label :username, class:"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" %><br />
+        <%= f.text_field :username, autofocus: true, autocomplete: "username", class:"flex h-10 w-full rounded-md px-3 py-2 text-sm text-black" %>
+      </div>
+      <div class="field space-y-2">
+        <%= f.label :first_name, class:"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" %><br />
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "firstname", class:"flex h-10 w-full rounded-md px-3 py-2 text-sm text-black" %>
+      </div>
+      <div class="field space-y-2">
+        <%= f.label :last_name, class:"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" %><br />
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "lastname", class:"flex h-10 w-full rounded-md px-3 py-2 text-sm text-black" %>
+      </div>
+      <div class="field space-y-2">
+        <%= f.label :email, class:"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"flex h-10 w-full rounded-md px-3 py-2 text-sm text-black" %>
+      </div>
+    
+      <div class="field space-y-2">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password",class:"flex h-10 w-full rounded-md px-3 py-2 text-sm text-black" %>
+      </div>
+    
+      <div class="field space-y-2">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"flex h-10 w-full rounded-md px-3 py-2 text-sm text-black" %>
+      </div>
+      <button class="actions bg-white-05 hover:bg-dark cursor-pointer rounded-md p-2 w-full">
+        <%= f.submit "Sign Up" %>
+      </button>
+      <div class="text-center">
+        <%= link_to "Already have an account. Log in", new_session_path(resource_name) %><br />
+      </div>
+    <% end %>
+    <div class="flex items-center space-x-2">
+      <hr class="flex-grow border-zinc-200 dark:border-zinc-700" />
+      <span class="text-zinc-400 dark:text-zinc-300 text-sm">OR</span>
+      <hr class="flex-grow border-zinc-200 dark:border-zinc-700" />
     </div>
-
-    <div class="field *:w-full">
-      <%= f.label :first_name %><br />
-      <%= f.text_field :first_name, autofocus: true, autocomplete: "firstname", class: "text-black"%>
-    </div>
-
-    <div class="field *:w-full">
-      <%= f.label :last_name %><br />
-      <%= f.text_field :last_name, autofocus: true, autocomplete: "lastname", class: "text-black"%>
-    </div>
-
-    <div class="field *:w-full">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "text-black"%>
-    </div>
-
-  
-    <div class="field *:w-full">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password", class: "text-black" %>
-    </div>
-  
-    <div class="field *:w-full">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "text-black"%>
-    </div>
-
-    <button class="actions bg-white-05 hover:bg-dark cursor-pointer rounded-md p-2 my-2">
-      <%= f.submit "Sign up" %>
-    </button>
- 
-    <div class="flex gap-4">
-      <%= render "devise/shared/links" %>
-    </div>
-  <% end %>
+    <%= button_to user_google_oauth2_omniauth_authorize_path, data: { turbo: false }, class: "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full text-white my-4" do %>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="w-5 h-5 mr-2"
+    >
+      <circle cx="12" cy="12" r="10"></circle>
+      <circle cx="12" cy="12" r="4"></circle>
+      <line x1="21.17" x2="12" y1="8" y2="8"></line>
+      <line x1="3.95" x2="8.54" y1="6.06" y2="14"></line>
+      <line x1="10.88" x2="15.46" y1="21.94" y2="14"></line>
+    </svg>
+    Continue with Google
+    <% end %>
+  </div>
 </section>
