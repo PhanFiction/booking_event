@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 export default function Hamburger() {
   const [open, setOpen] = useState(false);
   return (
-    <button
+    <div
       className="text-gray-500 w-10 h-10 relative focus:outline-none"
       onClick={() => setOpen(!open)}
     >
@@ -27,6 +27,6 @@ export default function Hamburger() {
           }`}
         ></span>
       </div>
-    </button>
+    </div>
   )
 }
