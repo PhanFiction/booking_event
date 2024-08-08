@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-export const NavItem = () => {
+export const NavItem = ({ user, handleLogout }) => {
   return (
     <div className="w-[150px] bg-bluePurple absolute top-8 right-0 p-4 rounded-md outline">
       <ul className="flex flex-col">
@@ -10,7 +10,7 @@ export const NavItem = () => {
           className="btn btn-lg custom-button"
           role="button"
         >
-          Main Page
+          { user.username }
         </Link>
         <hr />
         <a href="/users/sign_up">Sign Up</a>
@@ -26,7 +26,7 @@ export const NavItem = () => {
           className="btn btn-lg custom-button"
           role="button"
         >
-          Logout
+          <button onClick={handleLogout}>Logout</button>
         </Link>
       </ul>
     </div>
