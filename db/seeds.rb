@@ -14,6 +14,15 @@ Airport.create(airport_code: "SDU")
 Airport.create(airport_code: "REC")
 Airport.create(airport_code: "SFO")
 
+User.create(
+  email: 'user1@example.com',
+  username: 'user1',
+  first_name: 'John',
+  last_name: 'Doe',
+  password: 'password123',
+  confirmed_at: Time.now
+)
+
 Flight.create(departure_airport_id: 2, arrival_airport_id: 1, date: "2024-09-01 01:00:00 UTC",  duration: '2:30')
 Flight.create(departure_airport_id: 3, arrival_airport_id: 5, date: "2024-10-26 06:00:00 UTC",  duration: '1:20')
 Flight.create(departure_airport_id: 5, arrival_airport_id: 2, date: "2024-11-21 12:00:00 UTC",  duration: '3:00')

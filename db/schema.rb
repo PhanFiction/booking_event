@@ -21,19 +21,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_09_170712) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "flight_id", null: false
+    t.bigint "passenger_id"
+    t.integer "flight_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["flight_id"], name: "index_bookings_on_flight_id"
-    t.index ["user_id"], name: "index_bookings_on_user_id"
+    t.index ["passenger_id"], name: "index_bookings_on_passenger_id"
   end
 
   create_table "flights", force: :cascade do |t|
     t.datetime "date"
     t.time "duration"
-    t.bigint "departure_airport_id", null: false
-    t.bigint "arrival_airport_id", null: false
+    t.bigint "departure_airport_id"
+    t.bigint "arrival_airport_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["arrival_airport_id"], name: "index_flights_on_arrival_airport_id"
@@ -63,7 +62,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_09_170712) do
   end
 
   add_foreign_key "bookings", "flights"
-  add_foreign_key "bookings", "users"
+  add_foreign_key "bookings", "users", column: "passenger_id"
   add_foreign_key "flights", "airports", column: "arrival_airport_id"
   add_foreign_key "flights", "airports", column: "departure_airport_id"
 end
