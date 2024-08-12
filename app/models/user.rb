@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :omniauthable, omniauth_providers: [:google_oauth2]
 
-  has_many :saved_flights, foreign_key: "user_id", class_name: "Flight"
+  has_many :bookings, foreign_key: :passenger_id
+  has_many :flights, through: :bookings, source: :flights # returns a list of flights thats being attended
 
   def self.from_omniauth(auth)
     data = auth.info
