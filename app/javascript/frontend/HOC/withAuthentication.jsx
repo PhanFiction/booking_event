@@ -10,10 +10,8 @@ const withAuthentication = (WrappedComponent) => {
         try {
           const response = await axios.get('/check_authentication');
           if (response.data.authenticated) {
-            console.log('authenticated');
             setIsAuthenticated(true);
           } else {
-            console.log('not authenticated');
             window.location.href = '/users/sign_up'; // Redirect to sign up page if not authenticated
           }
         } catch (error) {

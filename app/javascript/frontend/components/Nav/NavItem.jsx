@@ -13,16 +13,15 @@ export const NavItem = ({ user, handleLogout }) => {
           { user.username }
         </Link>
         <hr />
-        <a href="/users/sign_up">Sign Up</a>
         <Link
-          to="/recipes"
+          to="/bookings"
           className="btn btn-lg custom-button"
           role="button"
         >
           Bookmarks
         </Link>
         <Link
-          to="/recipes"
+          to="/logout"
           className="btn btn-lg custom-button"
           role="button"
         >

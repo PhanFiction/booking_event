@@ -1,17 +1,19 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "../components/Home";
-import SignUpPage from "../components/SignUp";
-import LoginPage from "../components/Login";
 import Nav from "../components/Nav/Nav";
+import Home from "../components/Home";
+import Airport from "../components/Airport";
+import Booking from "../components/Booking";
 
 export default (
-  <>
+  <Router>
     <Nav />
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </Router>
-  </>
+      <div className="container mx-auto mt-28 px-5">
+        <Routes>
+          <Route path="/airports" element={<Airport />} />
+          <Route path="/bookings" element={<Booking />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
+  </Router>
 );
