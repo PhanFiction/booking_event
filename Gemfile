@@ -8,6 +8,12 @@ gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+# Amadeus 
+gem 'amadeus'
+
+# Rest-client
+gem 'rest-client', '~> 2.1'
+
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
@@ -25,6 +31,15 @@ gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
+
+# OmniAuth
+gem 'omniauth'
+
+# Google OmniAuth
+gem 'omniauth-google-oauth2', '~> 1.1', '>= 1.1.1'
+
+# OmniAuth Rails CSRF Protection
+gem 'omniauth-rails_csrf_protection'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
