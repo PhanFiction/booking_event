@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import ModifiedDate from "./Date/ModifiedDate";
 import axios from "axios";
 
@@ -73,7 +72,7 @@ const Home = () => {
 
     const token = document.querySelector('meta[name="csrf-token"]').content;
 
-    const res = await axios.post('/bookings', {
+    const res = await axios.post('/api/bookings/create', {
         flight_id: airport.id
       },
       {
@@ -83,7 +82,7 @@ const Home = () => {
         }
       },
     )
-    console.log(res);
+    console.log(res.data);
   }
 
   return (
@@ -134,7 +133,6 @@ const Home = () => {
                 <button className="p-2 border-2 border-white border rounded-md m-2" onClick={handleSubmit}>
                   Bookmark
                 </button>
-
               </article>
             )
           }

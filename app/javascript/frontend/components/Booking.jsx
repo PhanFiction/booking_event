@@ -19,6 +19,15 @@ export default function Booking() {
     fetchBookings();
   }, [])
 
+  const handleSubmit = async () => {
+    try {
+      const res = await axios.post('/api/bookings/create');
+      console.log('purchased', res.data);
+    } catch (error) {
+      console.log('failed to purchase flight.')
+    }
+  }
+
   return (
     <div className="bg-white-05 p-2 md:p-8 mt-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center sm:justify-start">
@@ -42,7 +51,7 @@ export default function Booking() {
                 Duration: <p className="font-semibold">{item.flight.duration}</p> hour
               </div>
 
-              <button className="p-2 border-2 border-white border rounded-md m-2">
+              <button className="p-2 border-2 border-white border rounded-md m-2" onClick={handleSubmit}>
                 Bookmark
               </button>
 
