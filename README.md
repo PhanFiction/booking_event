@@ -1,5 +1,8 @@
 # README
 
+* Run bundle install for gem libraries
+* Then yarn install for javascript libraries
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
